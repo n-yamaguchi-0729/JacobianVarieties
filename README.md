@@ -12,22 +12,11 @@ The curve and Jacobian development builds substantially on
 [Anthropic's Fermat's Last Theorem in Lean 4](https://github.com/anthropics/fermats-last-theorem),
 adapted and extended here.
 
-## Public API
+## Scope
 
-Import the curve library or the Jacobian library with:
-
-```lean
-import AlgebraicCurves.All
-import JacobianVarieties.All
-```
-
-For the Jacobian construction and its principal properties:
-
-```lean
-import JacobianVarieties.JacobianChallenge
-```
-
-Individual result files below can also be imported directly.
+The Jacobian construction works over arbitrary fields; the torsion,
+genus-one, and étale comparison results below have the stated
+characteristic-zero hypotheses.
 
 ## Main results
 
@@ -53,15 +42,28 @@ is also proved nondegenerate for supplied `DivisorialWeilPairingData` over an
 algebraically closed characteristic-zero field, under the principal-divisor
 and one-variable function-field hypotheses.
 
-## Scope
+## Incomplete results
 
-The Jacobian construction works over arbitrary fields; the torsion,
-genus-one, and étale comparison results above have the stated
-characteristic-zero hypotheses. The general identification of the fixed
-unpointed Jacobian with the fppf Picard sheaf, its full base-change
+The general identification of the fixed unpointed Jacobian with the fppf
+Picard sheaf, its full base-change
 compatibility, and the positive-genus Abel–Jacobi closed-immersion theorem
 are not yet provided as a complete API. The torsion-pairing constructions
 do not establish a principal-polarization isomorphism with the dual abelian variety.
+
+## Public API
+
+Import the curve library or the Jacobian library with:
+
+```lean
+import AlgebraicCurves.All
+import JacobianVarieties.All
+```
+
+For the Jacobian construction and its principal properties:
+
+```lean
+import JacobianVarieties.JacobianChallenge
+```
 
 ## Build
 
