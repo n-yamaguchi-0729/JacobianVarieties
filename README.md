@@ -118,8 +118,6 @@ proofs, and instance handling for the pinned toolchain and library APIs, and add
 Jacobian group and dimension results, and Abel–Jacobi and étale comparisons.
 Original Anthropic, PBC and other upstream attributions are preserved.
 
-The Jacobian challenge statements come from
-[Christian Merten's LeanEval contribution](https://github.com/leanprover/lean-eval/blob/38361be884302c7edce1908c4aef8296eb2cb27e/LeanEval/AlgebraicGeometry/JacobianChallenge.lean);
-the constructions and proofs are supplied here. Supporting code also incorporates
+Supporting code also incorporates
 [chrisflav/pi1](https://github.com/chrisflav/pi1); attribution and revision
 information are preserved in [NOTICE](NOTICE) and source headers.
