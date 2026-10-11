@@ -111,7 +111,7 @@
       "configFile": "lakefile.toml"
     }
   ],
-  "name": "JacobianVarieties",
+  "name": "Nyll",
   "lakeDir": ".lake",
   "fixedToolchain": false
 }
