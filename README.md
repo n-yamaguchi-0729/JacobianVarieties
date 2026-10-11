@@ -10,8 +10,7 @@ with characteristic-zero results on torsion and étale cohomology.
 
 The curve and Jacobian development builds substantially on
 [Anthropic's Fermat's Last Theorem in Lean 4](https://github.com/anthropics/fermats-last-theorem),
-adapted and extended here. Its only Lake dependency is
-[Mathlib](https://github.com/leanprover-community/mathlib4).
+adapted and extended here.
 
 ## Public API
 
@@ -38,16 +37,37 @@ For a smooth proper geometrically irreducible curve `C` over any field `k`,
 Jacobian with a group structure and proves smoothness, properness, geometric
 irreducibility, and dimension equal to the geometric genus.
 
-| Declaration | Mathematical content |
-| --- | --- |
-| [`finrank_H1_eq_geometricGenus`](Lean4/AlgebraicCurves/Geometry/Curves/GeometricGenus.lean) | For a smooth proper geometrically integral curve over any field, the dimension of structure-sheaf Čech H¹ for a two-affine-open cover equals its geometric genus. |
-| [`Jacobian.ofCurve`, `Jacobian.comp_ofCurve`](Lean4/JacobianVarieties/JacobianChallenge.lean) | A rational basepoint defines an Abel–Jacobi morphism to the constructed Jacobian, sending the basepoint to the identity. |
-| [`Jacobian.exists_unique_ofCurve_comp`](Lean4/JacobianVarieties/JacobianChallenge.lean) | Every basepoint-preserving morphism from the curve to a smooth proper geometrically irreducible group scheme factors uniquely through Abel–Jacobi as a morphism over `k`. |
-| [`exists_abelJacobi_isIso_of_genus_one`](Lean4/JacobianVarieties/Albanese/GenusOneAbelJacobiIsomorphism.lean) | Over an algebraically closed field of characteristic zero, a pointed genus-one curve model has an Abel–Jacobi isomorphism with its Picard variety. |
-| [`natCard_torsionLevel_eq_pow`](Lean4/JacobianVarieties/Picard/TorsionCardinality.lean) | For an abelian variety of dimension `d` over an algebraically closed field of characteristic zero and positive `n`, the multiplication kernel has `n^(2*d)` algebraic points. |
-| [`CurveModel.natCard_finiteH1_eq_pow_genus`](Lean4/JacobianVarieties/Kummer/FiniteH1Cardinality.lean) | For a pointed geometrically integral curve model over an algebraically closed field of characteristic zero, actual étale H¹ with μₙ coefficients has cardinality `n^(2*g)`, for positive `n`. |
-| [`natCard_open_finiteH1_eq_pow_genus_boundary`](Lean4/JacobianVarieties/Kummer/OpenFiniteH1Cardinality.lean) | In the same characteristic-zero setting, a quasi-compact dense integral open curve with finite nonempty boundary of size `r` has `#H¹(U, μₙ) = n^(2*g+r-1)`. |
-| [`exists_abelJacobi_fullTate_equiv`](Lean4/JacobianVarieties/Kummer/AbelJacobiTate.lean) | Over an algebraically closed field of characteristic zero, a Picard representation and Abel–Jacobi morphism compatible with point line bundles induce a topological isomorphism `π₁(C)ᵃᵇ ≃ T(J)`. |
+**[Geometric genus and coherent cohomology](Lean4/AlgebraicCurves/Geometry/Curves/GeometricGenus.lean)**
+
+For a smooth proper geometrically integral curve over any field, the dimension of structure-sheaf Čech H¹ for a two-affine-open cover equals its geometric genus.
+
+**[The Abel–Jacobi morphism](Lean4/JacobianVarieties/JacobianChallenge.lean)**
+
+A rational basepoint defines an Abel–Jacobi morphism to the constructed Jacobian, sending the basepoint to the identity.
+
+**[Albanese factorization](Lean4/JacobianVarieties/JacobianChallenge.lean)**
+
+Every basepoint-preserving morphism from the curve to a smooth proper geometrically irreducible group scheme factors uniquely through Abel–Jacobi as a morphism over `k`.
+
+**[The genus-one Abel–Jacobi isomorphism](Lean4/JacobianVarieties/Albanese/GenusOneAbelJacobiIsomorphism.lean)**
+
+Over an algebraically closed field of characteristic zero, a pointed genus-one curve model has an Abel–Jacobi isomorphism with its Picard variety.
+
+**[Torsion cardinality](Lean4/JacobianVarieties/Picard/TorsionCardinality.lean)**
+
+For an abelian variety of dimension `d` over an algebraically closed field of characteristic zero and positive `n`, the multiplication kernel has `n^(2*d)` algebraic points.
+
+**[Étale cohomology of proper curves](Lean4/JacobianVarieties/Kummer/FiniteH1Cardinality.lean)**
+
+For a pointed geometrically integral curve model over an algebraically closed field of characteristic zero, actual étale H¹ with μₙ coefficients has cardinality `n^(2*g)`, for positive `n`.
+
+**[Étale cohomology of open curves](Lean4/JacobianVarieties/Kummer/OpenFiniteH1Cardinality.lean)**
+
+In the same characteristic-zero setting, a quasi-compact dense integral open curve with finite nonempty boundary of size `r` has `#H¹(U, μₙ) = n^(2*g+r-1)`.
+
+**[The abelianized fundamental group and Tate module](Lean4/JacobianVarieties/Kummer/AbelJacobiTate.lean)**
+
+Over an algebraically closed field of characteristic zero, a Picard representation and Abel–Jacobi morphism compatible with point line bundles induce a topological isomorphism `π₁(C)ᵃᵇ ≃ T(J)`.
 
 The [divisorial Weil pairing](Lean4/JacobianVarieties/WeilPairing/CharZeroNondegeneracy.lean)
 is also proved nondegenerate for supplied `DivisorialWeilPairingData` over an
@@ -66,7 +86,7 @@ do not establish a principal-polarization isomorphism with the dual abelian vari
 
 ## Build
 
-Lean and Mathlib versions are pinned in [`lean-toolchain`](lean-toolchain)
+The toolchain and dependencies are pinned in [`lean-toolchain`](lean-toolchain)
 and [`lakefile.toml`](lakefile.toml).
 
 ```console
@@ -94,7 +114,7 @@ carry individual links to 2,379 distinct files in
 Additional modules have FLT provenance without a resolved file correspondence;
 these are source-header counts, not a measure of unchanged code.
 The adaptation reorganizes modules by mathematical subject, revises imports,
-proofs, and instance handling for the pinned Mathlib, and adds unpointed descent,
+proofs, and instance handling for the pinned toolchain and library APIs, and adds unpointed descent,
 Jacobian group and dimension results, and Abel–Jacobi and étale comparisons.
 Original Anthropic, PBC and other upstream attributions are preserved.
 
