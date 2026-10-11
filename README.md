@@ -37,37 +37,16 @@ For a smooth proper geometrically irreducible curve `C` over any field `k`,
 Jacobian with a group structure and proves smoothness, properness, geometric
 irreducibility, and dimension equal to the geometric genus.
 
-**[Geometric genus and coherent cohomology](Lean4/AlgebraicCurves/Geometry/Curves/GeometricGenus.lean)**
-
-For a smooth proper geometrically integral curve over any field, the dimension of structure-sheaf Čech H¹ for a two-affine-open cover equals its geometric genus.
-
-**[The Abel–Jacobi morphism](Lean4/JacobianVarieties/JacobianChallenge.lean)**
-
-A rational basepoint defines an Abel–Jacobi morphism to the constructed Jacobian, sending the basepoint to the identity.
-
-**[Albanese factorization](Lean4/JacobianVarieties/JacobianChallenge.lean)**
-
-Every basepoint-preserving morphism from the curve to a smooth proper geometrically irreducible group scheme factors uniquely through Abel–Jacobi as a morphism over `k`.
-
-**[The genus-one Abel–Jacobi isomorphism](Lean4/JacobianVarieties/Albanese/GenusOneAbelJacobiIsomorphism.lean)**
-
-Over an algebraically closed field of characteristic zero, a pointed genus-one curve model has an Abel–Jacobi isomorphism with its Picard variety.
-
-**[Torsion cardinality](Lean4/JacobianVarieties/Picard/TorsionCardinality.lean)**
-
-For an abelian variety of dimension `d` over an algebraically closed field of characteristic zero and positive `n`, the multiplication kernel has `n^(2*d)` algebraic points.
-
-**[Étale cohomology of proper curves](Lean4/JacobianVarieties/Kummer/FiniteH1Cardinality.lean)**
-
-For a pointed geometrically integral curve model over an algebraically closed field of characteristic zero, actual étale H¹ with μₙ coefficients has cardinality `n^(2*g)`, for positive `n`.
-
-**[Étale cohomology of open curves](Lean4/JacobianVarieties/Kummer/OpenFiniteH1Cardinality.lean)**
-
-In the same characteristic-zero setting, a quasi-compact dense integral open curve with finite nonempty boundary of size `r` has `#H¹(U, μₙ) = n^(2*g+r-1)`.
-
-**[The abelianized fundamental group and Tate module](Lean4/JacobianVarieties/Kummer/AbelJacobiTate.lean)**
-
-Over an algebraically closed field of characteristic zero, a Picard representation and Abel–Jacobi morphism compatible with point line bundles induce a topological isomorphism `π₁(C)ᵃᵇ ≃ T(J)`.
+| Result | Mathematical content |
+| --- | --- |
+| [Genus and coherent cohomology](Lean4/AlgebraicCurves/Geometry/Curves/GeometricGenus.lean) | For a smooth proper geometrically integral curve over any field, the dimension of structure-sheaf Čech H¹ for a two-affine-open cover equals its geometric genus. |
+| [Abel–Jacobi morphism](Lean4/JacobianVarieties/JacobianChallenge.lean) | A rational basepoint defines an Abel–Jacobi morphism to the constructed Jacobian, sending the basepoint to the identity. |
+| [Albanese factorization](Lean4/JacobianVarieties/JacobianChallenge.lean) | Every basepoint-preserving morphism from the curve to a smooth proper geometrically irreducible group scheme factors uniquely through Abel–Jacobi as a morphism over `k`. |
+| [Genus-one Abel–Jacobi isomorphism](Lean4/JacobianVarieties/Albanese/GenusOneAbelJacobiIsomorphism.lean) | Over an algebraically closed field of characteristic zero, a pointed genus-one curve model has an Abel–Jacobi isomorphism with its Picard variety. |
+| [Torsion cardinality](Lean4/JacobianVarieties/Picard/TorsionCardinality.lean) | For an abelian variety of dimension `d` over an algebraically closed field of characteristic zero and positive `n`, the multiplication kernel has `n^(2*d)` algebraic points. |
+| [Étale cohomology of proper curves](Lean4/JacobianVarieties/Kummer/FiniteH1Cardinality.lean) | For a pointed geometrically integral curve model over an algebraically closed field of characteristic zero, actual étale H¹ with μₙ coefficients has cardinality `n^(2*g)`, for positive `n`. |
+| [Étale cohomology of open curves](Lean4/JacobianVarieties/Kummer/OpenFiniteH1Cardinality.lean) | In the same characteristic-zero setting, a quasi-compact dense integral open curve with finite nonempty boundary of size `r` has `#H¹(U, μₙ) = n^(2*g+r-1)`. |
+| [Tate-module comparison](Lean4/JacobianVarieties/Kummer/AbelJacobiTate.lean) | Over an algebraically closed field of characteristic zero, a Picard representation and Abel–Jacobi morphism compatible with point line bundles induce a topological isomorphism `π₁(C)ᵃᵇ ≃ T(J)`. |
 
 The [divisorial Weil pairing](Lean4/JacobianVarieties/WeilPairing/CharZeroNondegeneracy.lean)
 is also proved nondegenerate for supplied `DivisorialWeilPairingData` over an
