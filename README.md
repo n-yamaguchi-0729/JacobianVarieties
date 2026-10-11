@@ -8,8 +8,6 @@ It develops function fields, divisors, differentials, Riemann–Roch, Jacobians
 over arbitrary fields, Abel–Jacobi maps, and Albanese factorization, together
 with characteristic-zero results on torsion and étale cohomology.
 
-All original code in this library is written by OpenAI Codex.
-
 The curve and Jacobian development builds substantially on
 [Anthropic's Fermat's Last Theorem in Lean 4](https://github.com/anthropics/fermats-last-theorem),
 adapted and extended here.
@@ -84,6 +82,8 @@ lake --wfail build
 with warnings treated as errors.
 
 ## Authorship
+
+All original code in this library is written by OpenAI Codex.
 
 [Naganori Yamaguchi](https://github.com/n-yamaguchi-0729) sets the mathematical
 goals and scope, directs development, and maintains the library.
