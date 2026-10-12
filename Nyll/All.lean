@@ -13,3 +13,7 @@ import Nyll.AlgebraicCurves.All
 import Nyll.EtaleFundamentalGroups.All
 import Nyll.EtaleCohomology.All
 import Nyll.JacobianVarieties.All
+
+/-!
+Aggregate of the maintained libraries included in this public extract.
+-/
