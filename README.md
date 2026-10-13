@@ -13,7 +13,9 @@ The curve and Jacobian development builds substantially on
 adapted and extended here.
 
 This library is extracted from [NYLL](https://github.com/n-yamaguchi-0729/NYLL).
-Bundled dependencies use the same `Nyll` imports as the complete library.
+<!-- nyll-publication:distribution:begin -->
+Only the module-level import closure of `Nyll.JacobianVarieties.All` is bundled. Dependencies retain their canonical `Nyll` imports.
+<!-- nyll-publication:distribution:end -->
 
 ## Scope
 
@@ -90,19 +92,9 @@ goals and scope, directs development, and maintains the library.
 
 ## License and acknowledgements
 
-Apache License 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE) for preserved
-third-party notices and attribution.
+<!-- nyll-publication:credits:begin -->
+Apache License 2.0. See [LICENSE](LICENSE).
 
-Of the 2,948 Lean modules in AlgebraicCurves and JacobianVarieties, 2,404
-carry individual links to 2,379 distinct files in
-[Anthropic FLT at `aa2d8b3`](https://github.com/anthropics/fermats-last-theorem/tree/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef).
-Additional modules have FLT provenance without a resolved file correspondence;
-these are source-header counts, not a measure of unchanged code.
-The adaptation reorganizes modules by mathematical subject, revises imports,
-proofs, and instance handling for the pinned toolchain and library APIs, and adds unpointed descent,
-Jacobian group and dimension results, and Abel–Jacobi and étale comparisons.
-Original Anthropic, PBC and other upstream attributions are preserved.
-
-Supporting code also incorporates
-[chrisflav/pi1](https://github.com/chrisflav/pi1); attribution and revision
-information are preserved in [NOTICE](NOTICE) and source headers.
+Included adaptations from [pi1](https://github.com/chrisflav/pi1) and [Anthropic’s Fermat’s Last Theorem project](https://github.com/anthropics/fermats-last-theorem) retain their source-specific copyrights and authors.
+The included-file inventories and preserved upstream notices are in [NOTICE](NOTICE).
+<!-- nyll-publication:credits:end -->

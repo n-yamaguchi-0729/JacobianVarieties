@@ -78,5 +78,8 @@
     "EtaleFundamentalGroups",
     "EtaleCohomology",
     "JacobianVarieties"
+  ],
+  "primaryRoots": [
+    "Nyll.JacobianVarieties.All"
   ]
 }
