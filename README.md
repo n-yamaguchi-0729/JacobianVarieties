@@ -8,6 +8,8 @@ It develops function fields, divisors, differentials, Riemann–Roch, Jacobians
 over arbitrary fields, Abel–Jacobi maps, and Albanese factorization, together
 with characteristic-zero results on torsion and étale cohomology.
 
+[Library overview and selected results](https://n-yamaguchi-0729.github.io/NYLL/libraries/jacobian-varieties/).
+
 The curve and Jacobian development builds substantially on
 [Anthropic's Fermat's Last Theorem in Lean 4](https://github.com/anthropics/fermats-last-theorem),
 adapted and extended here.
