@@ -24,8 +24,14 @@
     "EtaleCohomology": [
       "Nyll.EtaleCohomology"
     ],
+    "AbelianVarieties": [
+      "Nyll.AbelianVarieties"
+    ],
     "JacobianVarieties": [
       "Nyll.JacobianVarieties"
+    ],
+    "AnabelianGeometry": [
+      "Nyll.AnabelianGeometry"
     ],
     "EntryPoint": [
       "Nyll"
@@ -66,7 +72,9 @@
     "AlgebraicCurves": 2,
     "EtaleFundamentalGroups": 2,
     "EtaleCohomology": 2,
-    "JacobianVarieties": 3
+    "AbelianVarieties": 2,
+    "JacobianVarieties": 3,
+    "AnabelianGeometry": 3
   },
   "orderedLibraries": [
     "ProCGroups",
@@ -77,7 +85,9 @@
     "AlgebraicCurves",
     "EtaleFundamentalGroups",
     "EtaleCohomology",
-    "JacobianVarieties"
+    "AbelianVarieties",
+    "JacobianVarieties",
+    "AnabelianGeometry"
   ],
   "primaryRoots": [
     "Nyll.JacobianVarieties.All"

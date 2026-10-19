@@ -17,6 +17,8 @@ adapted and extended here.
 This library is extracted from [NYLL](https://github.com/n-yamaguchi-0729/NYLL).
 <!-- nyll-publication:distribution:begin -->
 Only the module-level import closure of `Nyll.JacobianVarieties.All` is bundled. Dependencies retain their canonical `Nyll` imports.
+
+Supporting modules are included from [AbelianVarieties](Nyll/AbelianVarieties/), [AlgebraicCurves](Nyll/AlgebraicCurves/), [AnabelianGeometry](Nyll/AnabelianGeometry/), [ClassFieldTheory](Nyll/ClassFieldTheory/), [EtaleCohomology](Nyll/EtaleCohomology/), [EtaleFundamentalGroups](Nyll/EtaleFundamentalGroups/), [GaloisCohomology](Nyll/GaloisCohomology/), [ProCGroups](Nyll/ProCGroups/), [SchemeTheory](Nyll/SchemeTheory/), [ValuedFieldTheory](Nyll/ValuedFieldTheory/). These dependency libraries are included only to the extent required by the imports.
 <!-- nyll-publication:distribution:end -->
 
 ## Scope
@@ -39,7 +41,7 @@ irreducibility, and dimension equal to the geometric genus.
 | [Abel–Jacobi morphism](Nyll/JacobianVarieties/JacobianChallenge.lean) | A rational basepoint defines an Abel–Jacobi morphism to the constructed Jacobian, sending the basepoint to the identity. |
 | [Albanese factorization](Nyll/JacobianVarieties/JacobianChallenge.lean) | Every basepoint-preserving morphism from the curve to a smooth proper geometrically irreducible group scheme factors uniquely through Abel–Jacobi as a morphism over `k`. |
 | [Genus-one Abel–Jacobi isomorphism](Nyll/JacobianVarieties/Albanese/GenusOneAbelJacobiIsomorphism.lean) | Over an algebraically closed field of characteristic zero, a pointed genus-one curve model has an Abel–Jacobi isomorphism with its Picard variety. |
-| [Torsion cardinality](Nyll/JacobianVarieties/Picard/TorsionCardinality.lean) | For an abelian variety of dimension `d` over an algebraically closed field of characteristic zero and positive `n`, the multiplication kernel has `n^(2*d)` algebraic points. |
+| [Torsion cardinality](Nyll/JacobianVarieties/Picard/Torsion/TorsionCardinality.lean) | For an abelian variety of dimension `d` over an algebraically closed field of characteristic zero and positive `n`, the multiplication kernel has `n^(2*d)` algebraic points. |
 | [Étale cohomology of proper curves](Nyll/JacobianVarieties/Kummer/FiniteH1Cardinality.lean) | For a pointed geometrically integral curve model over an algebraically closed field of characteristic zero, actual étale H¹ with μₙ coefficients has cardinality `n^(2*g)`, for positive `n`. |
 | [Étale cohomology of open curves](Nyll/JacobianVarieties/Kummer/OpenFiniteH1Cardinality.lean) | In the same characteristic-zero setting, a quasi-compact dense integral open curve with finite nonempty boundary of size `r` has `#H¹(U, μₙ) = n^(2*g+r-1)`. |
 | [Tate-module comparison](Nyll/JacobianVarieties/Kummer/AbelJacobiTate.lean) | Over an algebraically closed field of characteristic zero, a Picard representation and Abel–Jacobi morphism compatible with point line bundles induce a topological isomorphism `π₁(C)ᵃᵇ ≃ T(J)`. |
@@ -48,6 +50,30 @@ The [divisorial Weil pairing](Nyll/JacobianVarieties/WeilPairing/CharZeroNondege
 is also proved nondegenerate for supplied `DivisorialWeilPairingData` over an
 algebraically closed characteristic-zero field, under the principal-divisor
 and one-variable function-field hypotheses.
+
+## Generalized Jacobians
+
+<!-- nyll-publication:generalized-jacobians:begin -->
+For a smooth proper geometrically integral curve over an arbitrary field,
+a morphism from a nonempty open subset to a separated commutative group
+scheme locally of finite type constructs a modulus with its multiplicities.
+The unpointed factorization does not require a rational point, a perfect
+base field, or a smooth connected target.
+
+| Result | Lean endpoint |
+| --- | --- |
+| A full ground-field modulus for the original open complement | [`exists_group_geometricRegularMapHasModulus`](Nyll/JacobianVarieties/Generalized/GeneralGeometricModulusExistence.lean#L59) |
+| A unique equivariant factor through the intrinsic Picard degree-one torsor | [`exists_modulus_unique_picardOneFactor`](Nyll/JacobianVarieties/Generalized/GeneralGroupPicardOneFactorization.lean#L35) |
+| A unique pointed group factor | [`exists_modulus_unique_pointedGroupFactor`](Nyll/JacobianVarieties/Generalized/GeneralGroupPointedFactorization.lean#L30) |
+| Least full conductor classifying all moduli over an algebraically closed field | [`existsUnique_group_regularMap_modulus_classification`](Nyll/JacobianVarieties/Generalized/GeneralGroupLocalSymbolExistence.lean#L70) |
+| The product conductor is the coefficientwise maximum of the two conductors | [`exists_group_regularMap_product_conductors`](Nyll/JacobianVarieties/Generalized/GeneralGroupProductConductor.lean#L103) |
+
+The pointed form assumes a rational point in the original open sent to the identity. Uniqueness is for the factor attached to the constructed modulus.
+Over an algebraically closed field in any characteristic, the conductor classifies full moduli of the actual point-value function, extended by the identity outside the open. Its support can be smaller than the original boundary. The map also constructs its reciprocal local symbol: [`exists_group_regularMap_localSymbol`](Nyll/JacobianVarieties/Generalized/GeneralGroupLocalSymbolExistence.lean#L37).
+Lie and differential comparisons, the actual nonreduced kernel and its
+Witt decomposition, symmetric powers, analytic uniformization, and
+pinching comparisons remain unfinished.
+<!-- nyll-publication:generalized-jacobians:end -->
 
 ## Incomplete results
 
@@ -59,10 +85,9 @@ do not establish a principal-polarization isomorphism with the dual abelian vari
 
 ## Public API
 
-Import the curve library or the Jacobian library with:
+Import the Jacobian library and its required curve modules with:
 
 ```lean
-import Nyll.AlgebraicCurves.All
 import Nyll.JacobianVarieties.All
 ```
 
