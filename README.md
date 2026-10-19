@@ -3,23 +3,15 @@
 [![Lean](https://github.com/n-yamaguchi-0729/JacobianVarieties/actions/workflows/lean.yml/badge.svg)](https://github.com/n-yamaguchi-0729/JacobianVarieties/actions/workflows/lean.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-A Lean 4 library for algebraic curves, Picard groups, and Jacobian varieties.
-It develops function fields, divisors, differentials, Riemann–Roch, Jacobians
-over arbitrary fields, Abel–Jacobi maps, and Albanese factorization, together
-with characteristic-zero results on torsion and étale cohomology.
-
-[Library overview and selected results](https://n-yamaguchi-0729.github.io/NYLL/libraries/jacobian-varieties/).
+This Lean component of [NYLL](https://github.com/n-yamaguchi-0729/NYLL) develops Jacobians and generalized Jacobians
+of algebraic curves, including Abel–Jacobi maps, factorization properties,
+torsion and cohomological comparisons. The [mathematical guide](https://n-yamaguchi-0729.github.io/NYLL/libraries/jacobian-varieties/) explains the principal
+constructions and results, including their base-field and characteristic hypotheses.
 
 The curve and Jacobian development builds substantially on
-[Anthropic's Fermat's Last Theorem in Lean 4](https://github.com/anthropics/fermats-last-theorem),
-adapted and extended here.
-
-This library is extracted from [NYLL](https://github.com/n-yamaguchi-0729/NYLL).
-<!-- nyll-publication:distribution:begin -->
-Only the module-level import closure of `Nyll.JacobianVarieties.All` is bundled. Dependencies retain their canonical `Nyll` imports.
-
-Supporting modules are included from [AbelianVarieties](Nyll/AbelianVarieties/), [AlgebraicCurves](Nyll/AlgebraicCurves/), [AnabelianGeometry](Nyll/AnabelianGeometry/), [ClassFieldTheory](Nyll/ClassFieldTheory/), [EtaleCohomology](Nyll/EtaleCohomology/), [EtaleFundamentalGroups](Nyll/EtaleFundamentalGroups/), [GaloisCohomology](Nyll/GaloisCohomology/), [ProCGroups](Nyll/ProCGroups/), [SchemeTheory](Nyll/SchemeTheory/), [ValuedFieldTheory](Nyll/ValuedFieldTheory/). These dependency libraries are included only to the extent required by the imports.
-<!-- nyll-publication:distribution:end -->
+[Anthropic’s Fermat’s Last Theorem project](https://github.com/anthropics/fermats-last-theorem),
+whose code is adapted and extended here. The original source credits
+are retained in the files and in [NOTICE](NOTICE).
 
 ## Scope
 
@@ -28,6 +20,8 @@ genus-one, and étale comparison results below have the stated
 characteristic-zero hypotheses.
 
 ## Main results
+
+### Jacobians and curves
 
 For a smooth proper geometrically irreducible curve `C` over any field `k`,
 [`JacobianChallenge`](Nyll/JacobianVarieties/JacobianChallenge.lean) constructs
@@ -51,7 +45,7 @@ is also proved nondegenerate for supplied `DivisorialWeilPairingData` over an
 algebraically closed characteristic-zero field, under the principal-divisor
 and one-variable function-field hypotheses.
 
-## Generalized Jacobians
+### Generalized Jacobians
 
 <!-- nyll-publication:generalized-jacobians:begin -->
 For a smooth proper geometrically integral curve over an arbitrary field,
@@ -60,13 +54,13 @@ scheme locally of finite type constructs a modulus with its multiplicities.
 The unpointed factorization does not require a rational point, a perfect
 base field, or a smooth connected target.
 
-| Result | Lean endpoint |
+| Result | Mathematical content |
 | --- | --- |
-| A full ground-field modulus for the original open complement | [`exists_group_geometricRegularMapHasModulus`](Nyll/JacobianVarieties/Generalized/GeneralGeometricModulusExistence.lean#L59) |
-| A unique equivariant factor through the intrinsic Picard degree-one torsor | [`exists_modulus_unique_picardOneFactor`](Nyll/JacobianVarieties/Generalized/GeneralGroupPicardOneFactorization.lean#L35) |
-| A unique pointed group factor | [`exists_modulus_unique_pointedGroupFactor`](Nyll/JacobianVarieties/Generalized/GeneralGroupPointedFactorization.lean#L30) |
-| Least full conductor classifying all moduli over an algebraically closed field | [`existsUnique_group_regularMap_modulus_classification`](Nyll/JacobianVarieties/Generalized/GeneralGroupLocalSymbolExistence.lean#L70) |
-| The product conductor is the coefficientwise maximum of the two conductors | [`exists_group_regularMap_product_conductors`](Nyll/JacobianVarieties/Generalized/GeneralGroupProductConductor.lean#L103) |
+| [Existence of a full modulus](Nyll/JacobianVarieties/Generalized/GeneralGeometricModulusExistence.lean#L59) | A full ground-field modulus for the original open complement. |
+| [Unpointed factorization](Nyll/JacobianVarieties/Generalized/GeneralGroupPicardOneFactorization.lean#L35) | A unique equivariant factor through the intrinsic Picard degree-one torsor. |
+| [Pointed factorization](Nyll/JacobianVarieties/Generalized/GeneralGroupPointedFactorization.lean#L30) | A unique pointed group factor. |
+| [Least conductor](Nyll/JacobianVarieties/Generalized/GeneralGroupLocalSymbolExistence.lean#L70) | Least full conductor classifying all moduli over an algebraically closed field. |
+| [Product conductor](Nyll/JacobianVarieties/Generalized/GeneralGroupProductConductor.lean#L103) | The product conductor is the coefficientwise maximum of the two conductors. |
 
 The pointed form assumes a rational point in the original open sent to the identity. Uniqueness is for the factor attached to the constructed modulus.
 Over an algebraically closed field in any characteristic, the conductor classifies full moduli of the actual point-value function, extended by the identity outside the open. Its support can be smaller than the original boundary. The map also constructs its reciprocal local symbol: [`exists_group_regularMap_localSymbol`](Nyll/JacobianVarieties/Generalized/GeneralGroupLocalSymbolExistence.lean#L37).
@@ -82,6 +76,14 @@ Picard sheaf, its full base-change
 compatibility, and the positive-genus Abel–Jacobi closed-immersion theorem
 are not yet provided as a complete API. The torsion-pairing constructions
 do not establish a principal-polarization isomorphism with the dual abelian variety.
+
+## Included sources
+
+<!-- nyll-publication:distribution:begin -->
+Only the module-level import closure of `Nyll.JacobianVarieties.All` is bundled. Dependencies retain their canonical `Nyll` imports.
+
+Supporting modules are included from [AbelianVarieties](Nyll/AbelianVarieties/), [AlgebraicCurves](Nyll/AlgebraicCurves/), [AnabelianGeometry](Nyll/AnabelianGeometry/), [ClassFieldTheory](Nyll/ClassFieldTheory/), [EtaleCohomology](Nyll/EtaleCohomology/), [EtaleFundamentalGroups](Nyll/EtaleFundamentalGroups/), [GaloisCohomology](Nyll/GaloisCohomology/), [ProCGroups](Nyll/ProCGroups/), [SchemeTheory](Nyll/SchemeTheory/), [ValuedFieldTheory](Nyll/ValuedFieldTheory/). These dependency libraries are included only to the extent required by the imports.
+<!-- nyll-publication:distribution:end -->
 
 ## Public API
 
