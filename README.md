@@ -25,9 +25,13 @@ characteristic-zero hypotheses.
 
 For a smooth proper geometrically irreducible curve `C` over any field `k`,
 [`JacobianChallenge`](Nyll/JacobianVarieties/JacobianChallenge.lean) constructs
-`Jacobian C` over `k` without requiring a rational point. It equips the
+`Jacobian C` over `k`. It equips the
 Jacobian with a group structure and proves smoothness, properness, geometric
 irreducibility, and dimension equal to the geometric genus.
+
+<!-- nyll-publication:jacobian-sheaf:begin -->
+The same Jacobian represents the [fppf Picard-zero sheaf](Nyll/JacobianVarieties/Generalized/ExistingJacobianSheafRepresentation.lean#L86), with its [tensor-product group law](Nyll/JacobianVarieties/Generalized/ExistingJacobianGroupScheme.lean#L61).
+<!-- nyll-publication:jacobian-sheaf:end -->
 
 | Result | Mathematical content |
 | --- | --- |
@@ -36,7 +40,7 @@ irreducibility, and dimension equal to the geometric genus.
 | [Albanese factorization](Nyll/JacobianVarieties/JacobianChallenge.lean) | Every basepoint-preserving morphism from the curve to a smooth proper geometrically irreducible group scheme factors uniquely through Abel–Jacobi as a morphism over `k`. |
 | [Genus-one Abel–Jacobi isomorphism](Nyll/JacobianVarieties/Albanese/GenusOneAbelJacobiIsomorphism.lean) | Over an algebraically closed field of characteristic zero, a pointed genus-one curve model has an Abel–Jacobi isomorphism with its Picard variety. |
 | [Torsion cardinality](Nyll/JacobianVarieties/Picard/Torsion/TorsionCardinality.lean) | For an abelian variety of dimension `d` over an algebraically closed field of characteristic zero and positive `n`, the multiplication kernel has `n^(2*d)` algebraic points. |
-| [Étale cohomology of proper curves](Nyll/JacobianVarieties/Kummer/FiniteH1Cardinality.lean) | For a pointed geometrically integral curve model over an algebraically closed field of characteristic zero, actual étale H¹ with μₙ coefficients has cardinality `n^(2*g)`, for positive `n`. |
+| [Étale cohomology of proper curves](Nyll/JacobianVarieties/Kummer/FiniteH1Cardinality.lean) | For a pointed geometrically integral curve model over an algebraically closed field of characteristic zero, étale H¹ with μₙ coefficients has cardinality `n^(2*g)`, for positive `n`. |
 | [Étale cohomology of open curves](Nyll/JacobianVarieties/Kummer/OpenFiniteH1Cardinality.lean) | In the same characteristic-zero setting, a quasi-compact dense integral open curve with finite nonempty boundary of size `r` has `#H¹(U, μₙ) = n^(2*g+r-1)`. |
 | [Tate-module comparison](Nyll/JacobianVarieties/Kummer/AbelJacobiTate.lean) | Over an algebraically closed field of characteristic zero, a Picard representation and Abel–Jacobi morphism compatible with point line bundles induce a topological isomorphism `π₁(C)ᵃᵇ ≃ T(J)`. |
 
@@ -50,9 +54,11 @@ and one-variable function-field hypotheses.
 <!-- nyll-publication:generalized-jacobians:begin -->
 For a smooth proper geometrically integral curve over an arbitrary field,
 a morphism from a nonempty open subset to a separated commutative group
-scheme locally of finite type constructs a modulus with its multiplicities.
-The unpointed factorization does not require a rational point, a perfect
-base field, or a smooth connected target.
+scheme locally of finite type admits a modulus and factors through
+the associated generalized Jacobian or Picard degree-one torsor.
+
+The empty modulus recovers the [ordinary Jacobian](Nyll/JacobianVarieties/Generalized/EmptyOrdinaryComparison.lean#L34), and the construction
+commutes with [field extensions](Nyll/JacobianVarieties/Generalized/ScalarExtensionGroupScheme.lean#L67) as a group scheme.
 
 | Result | Mathematical content |
 | --- | --- |
@@ -63,27 +69,17 @@ base field, or a smooth connected target.
 | [Product conductor](Nyll/JacobianVarieties/Generalized/GeneralGroupProductConductor.lean#L103) | The product conductor is the coefficientwise maximum of the two conductors. |
 
 The pointed form assumes a rational point in the original open sent to the identity. Uniqueness is for the factor attached to the constructed modulus.
-Over an algebraically closed field in any characteristic, the conductor classifies full moduli of the actual point-value function, extended by the identity outside the open. Its support can be smaller than the original boundary. The map also constructs its reciprocal local symbol: [`exists_group_regularMap_localSymbol`](Nyll/JacobianVarieties/Generalized/GeneralGroupLocalSymbolExistence.lean#L37).
-Lie and differential comparisons, the actual nonreduced kernel and its
-Witt decomposition, symmetric powers, analytic uniformization, and
-pinching comparisons remain unfinished.
+Over an algebraically closed field in any characteristic, the conductor classifies full moduli of the point-value function, extended by the identity outside the open. Its support can be smaller than the original boundary. The map also constructs its reciprocal local symbol: [`exists_group_regularMap_localSymbol`](Nyll/JacobianVarieties/Generalized/GeneralGroupLocalSymbolExistence.lean#L37).
 <!-- nyll-publication:generalized-jacobians:end -->
 
 ## Incomplete results
 
-The general identification of the fixed unpointed Jacobian with the fppf
-Picard sheaf, its full base-change
-compatibility, and the positive-genus Abel–Jacobi closed-immersion theorem
-are not yet provided as a complete API. The torsion-pairing constructions
-do not establish a principal-polarization isomorphism with the dual abelian variety.
-
-## Included sources
-
-<!-- nyll-publication:distribution:begin -->
-Only the module-level import closure of `Nyll.JacobianVarieties.All` is bundled. Dependencies retain their canonical `Nyll` imports.
-
-Supporting modules are included from [AbelianVarieties](Nyll/AbelianVarieties/), [AlgebraicCurves](Nyll/AlgebraicCurves/), [AnabelianGeometry](Nyll/AnabelianGeometry/), [ClassFieldTheory](Nyll/ClassFieldTheory/), [EtaleCohomology](Nyll/EtaleCohomology/), [EtaleFundamentalGroups](Nyll/EtaleFundamentalGroups/), [GaloisCohomology](Nyll/GaloisCohomology/), [ProCGroups](Nyll/ProCGroups/), [SchemeTheory](Nyll/SchemeTheory/), [ValuedFieldTheory](Nyll/ValuedFieldTheory/). These dependency libraries are included only to the extent required by the imports.
-<!-- nyll-publication:distribution:end -->
+<!-- nyll-publication:jacobian-remaining:begin -->
+The positive-genus Abel–Jacobi closed immersion and the principal polarization
+are not yet formalized. Generalized-Jacobian Lie and differential comparisons,
+the nonreduced kernel and its Witt decomposition, symmetric powers, analytic
+uniformization, and pinching comparisons also remain open.
+<!-- nyll-publication:jacobian-remaining:end -->
 
 ## Public API
 
