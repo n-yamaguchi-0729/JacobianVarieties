@@ -1,12 +1,13 @@
-# JacobianVarieties (Lean 4.35.0-rc2)
+# Generalized Jacobians (Lean 4.35.0-rc2)
 
 [![Lean](https://github.com/n-yamaguchi-0729/JacobianVarieties/actions/workflows/lean.yml/badge.svg)](https://github.com/n-yamaguchi-0729/JacobianVarieties/actions/workflows/lean.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-This Lean component of [NYLL](https://github.com/n-yamaguchi-0729/NYLL) develops Jacobians and generalized Jacobians
-of algebraic curves, including Abel–Jacobi maps, factorization properties,
-torsion and cohomological comparisons. The [mathematical guide](https://n-yamaguchi-0729.github.io/NYLL/libraries/jacobian-varieties/) explains the principal
-constructions and results, including their base-field and characteristic hypotheses.
+This Lean component of [NYLL](https://github.com/n-yamaguchi-0729/NYLL) develops generalized Jacobians of algebraic
+curves, with ordinary Jacobians as the zero-modulus case. It includes
+Abel–Jacobi maps, unique factorization through generalized Jacobians,
+torsion and cohomological comparisons. The [mathematical guide](https://n-yamaguchi-0729.github.io/NYLL/libraries/jacobian-varieties/) explains the main results
+and their hypotheses.
 
 The curve and Jacobian development builds substantially on
 [Anthropic’s Fermat’s Last Theorem project](https://github.com/anthropics/fermats-last-theorem),
@@ -21,7 +22,7 @@ characteristic-zero hypotheses.
 
 ## Main results
 
-### Jacobians and curves
+### Zero modulus: ordinary Jacobians
 
 For a smooth proper geometrically irreducible curve `C` over any field `k`,
 [`JacobianChallenge`](Nyll/JacobianVarieties/JacobianChallenge.lean) constructs
@@ -49,7 +50,7 @@ is also proved nondegenerate for supplied `DivisorialWeilPairingData` over an
 algebraically closed characteristic-zero field, under the principal-divisor
 and one-variable function-field hypotheses.
 
-### Generalized Jacobians
+### General moduli and factorization
 
 <!-- nyll-publication:generalized-jacobians:begin -->
 For a smooth proper geometrically integral curve over an arbitrary field,
@@ -83,13 +84,13 @@ uniformization, and pinching comparisons also remain open.
 
 ## Public API
 
-Import the Jacobian library and its required curve modules with:
+Import the generalized Jacobian library with:
 
 ```lean
 import Nyll.JacobianVarieties.All
 ```
 
-For the Jacobian construction and its principal properties:
+For the ordinary Jacobian construction and its principal properties:
 
 ```lean
 import Nyll.JacobianVarieties.JacobianChallenge
